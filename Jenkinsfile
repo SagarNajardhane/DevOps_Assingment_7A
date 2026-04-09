@@ -12,7 +12,7 @@ pipeline {
                 echo 'Pulling latest code from GitHub...'
                 git branch: 'main',
                     credentialsId: 'github-creds',
-                    url: 'https://github.com/your-username/demo-app.git'
+                    url: 'https://github.com/SagarNajardhane/DevOps_Assingment_7A.git'
             }
         }
 
