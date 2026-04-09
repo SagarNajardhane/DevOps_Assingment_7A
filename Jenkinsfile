@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Pulling latest code from GitHub...'
                 git branch: 'main',
-                    credentialsId: 'github-creds',
+                    credentialsId: 'github-creds1',
                     url: 'https://github.com/SagarNajardhane/DevOps_Assingment_7A.git'
             }
         }
