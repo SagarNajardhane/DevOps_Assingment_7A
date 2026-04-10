@@ -43,9 +43,16 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application...'
+                echo 'Deploying application safely...'
                 bat '''
-                taskkill /F /IM java.exe >nul 2>&1
+                echo Checking if app is already running...
+
+                for /f "tokens=5" %%a in ('netstat -aon ^| findstr :8081') do (
+                    echo Killing process on port 8081...
+                    taskkill /PID %%a /F
+                )
+
+                echo Starting application...
                 start /B java -jar target\\*.jar
                 '''
             }
