@@ -56,6 +56,7 @@ pipeline {
                 start /B java -jar target\\productapp-0.0.1-SNAPSHOT.jar
                 ''' */
                 bat '''
+                echo Starting app in background...
                 java -jar target\\productapp-0.0.1-SNAPSHOT.jar
                 '''
             }
