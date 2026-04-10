@@ -53,7 +53,7 @@ pipeline {
                 )
 
                 echo Starting application...
-                start /B java -jar target\\*.jar
+                start /B java -jar target\\productapp-0.0.1-SNAPSHOT.jar
                 '''
             }
         }
