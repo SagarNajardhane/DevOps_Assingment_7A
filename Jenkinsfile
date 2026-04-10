@@ -55,10 +55,22 @@ pipeline {
                 echo Starting application...
                 start /B java -jar target\\productapp-0.0.1-SNAPSHOT.jar
                 ''' */
+
+                /*
                 bat '''
                 echo Starting app in background...
                 java -jar target\\productapp-0.0.1-SNAPSHOT.jar
-                '''
+                ''' */
+                bat '''
+            echo Killing old app (if running)...
+            for /f "tokens=5" %%a in ('netstat -aon ^| findstr :8081') do taskkill /PID %%a /F
+
+            echo Starting app in background (detached)...
+
+            cmd /c "start \"\" java -jar target\\productapp-0.0.1-SNAPSHOT.jar"
+
+            echo Deployment done!
+            '''
             }
         }
     }
