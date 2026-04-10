@@ -43,7 +43,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application safely...'
+                /* echo 'Deploying application safely...'
                 bat '''
                 echo Checking if app is already running...
 
@@ -54,6 +54,9 @@ pipeline {
 
                 echo Starting application...
                 start /B java -jar target\\productapp-0.0.1-SNAPSHOT.jar
+                ''' */
+                bat '''
+                java -jar target\\productapp-0.0.1-SNAPSHOT.jar
                 '''
             }
         }
